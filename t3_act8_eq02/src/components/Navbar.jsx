@@ -1,7 +1,9 @@
-import { getInitials } from '../utils/student.js'
+import { getAppRole, getInitials } from '../utils/student.js'
 
 function Navbar({ user, onToggleSidebar, onLogout }) {
   const fullName = `${user.firstName || ''} ${user.lastName || ''}`.trim() || user.username
+  const appRole = getAppRole(user.role)
+  const panelLabel = appRole === 'Profesor' ? 'PANEL DOCENTE' : 'PANEL ESTUDIANTE'
 
   return (
     <header className="navbar">
@@ -11,7 +13,7 @@ function Navbar({ user, onToggleSidebar, onLogout }) {
 
       <h1>ENGLISH LAB // LEARNING SYSTEM</h1>
       <div className="nav-spacer"></div>
-      <span className="nav-label">PANEL ADMINISTRATIVO</span>
+      <span className="nav-label">{panelLabel}</span>
 
       <div className="nav-user">
         {user.image ? (
@@ -21,7 +23,7 @@ function Navbar({ user, onToggleSidebar, onLogout }) {
         )}
         <div className="nav-user-text">
           <strong>{fullName}</strong>
-          <small>{user.role || 'Usuario'}</small>
+          <small>{appRole}</small>
         </div>
         <button className="logout-button" type="button" onClick={onLogout}>Cerrar sesión</button>
       </div>

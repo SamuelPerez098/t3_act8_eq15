@@ -27,6 +27,8 @@ Se utiliza **DummyJSON**:
 
 También se permite iniciar sesión escribiendo el correo del usuario; la aplicación localiza primero el `username` correspondiente y después realiza el login.
 
+Para la interfaz de English Lab se muestran únicamente dos tipos: **Profesor** y **Estudiante**. Los roles `admin` y `moderator` de DummyJSON se presentan como Profesor; `user` se presenta como Estudiante. Esto no modifica la autenticación real de DummyJSON.
+
 ## Funcionalidades
 
 ### Fase 1 - Login
@@ -37,17 +39,19 @@ También se permite iniciar sesión escribiendo el correo del usuario; la aplica
 
 ### Fase 2 - Sistema
 - Sidebar con Inicio, Estudiantes y Reportes de errores.
-- Navbar con foto, nombre, rol y botón Cerrar sesión.
+- Navbar con foto, nombre, tipo de usuario (Profesor/Estudiante) y un único botón Cerrar sesión.
 - Vista protegida: si no existe sesión se muestra únicamente el login.
 
 ### Fase 3 - Tabla de estudiantes
 - Datos obtenidos de DummyJSON Users.
-- Filtro de texto por nombre, usuario o correo.
-- Filtro por rol.
+- Filtro de texto por nombre, correo o universidad.
+- Filtros visuales por nivel y última actividad, siguiendo el mockup de Figma.
+- Filtro por tipo de usuario (Profesor/Estudiante), basado en el rol entregado por DummyJSON.
 - Selector de 10, 20, 40 o 50 registros por página.
 - Paginación reflejada en la URL: `?page=2&limit=20`.
 - Estado de carga y mensajes de error.
 - Agregar, editar y eliminar con llamadas reales a la API y actualización del estado local.
+- Alta y edición de universidad desde el modal de estudiantes.
 - Confirmación antes de editar o eliminar.
 
 ## Organización

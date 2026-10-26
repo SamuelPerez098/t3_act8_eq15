@@ -5,6 +5,7 @@ import StudentsPage from './pages/StudentsPage.jsx'
 import ReportsPage from './pages/ReportsPage.jsx'
 import Navbar from './components/Navbar.jsx'
 import Sidebar from './components/Sidebar.jsx'
+import { getAppRole } from './utils/student.js'
 
 function loadSession() {
   try {
@@ -21,8 +22,13 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
 
   const handleLogin = (loggedUser) => {
-    sessionStorage.setItem('englishLabUser', JSON.stringify(loggedUser))
-    setUser(loggedUser)
+    const normalizedUser = {
+      ...loggedUser,
+      appRole: getAppRole(loggedUser.role),
+    }
+
+    sessionStorage.setItem('englishLabUser', JSON.stringify(normalizedUser))
+    setUser(normalizedUser)
     setView('dashboard')
   }
 
@@ -49,7 +55,6 @@ function App() {
           open={sidebarOpen}
           currentView={view}
           onNavigate={setView}
-          onLogout={handleLogout}
         />
 
         <main className="main-content">

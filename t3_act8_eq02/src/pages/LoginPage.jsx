@@ -32,7 +32,7 @@ function LoginPage({ onLogin }) {
       <section className="login-panel">
         <div className="login-brand">ENGLISH LAB //</div>
         <h1>INICIO DE SESIÓN</h1>
-        <p className="login-subtitle">LEARNING SYSTEM // PANEL ADMINISTRATIVO</p>
+        <p className="login-subtitle">LEARNING SYSTEM // ACCESO AL SISTEMA</p>
 
         <form onSubmit={handleSubmit} noValidate>
           <label htmlFor="identifier">Usuario o correo electrónico:</label>

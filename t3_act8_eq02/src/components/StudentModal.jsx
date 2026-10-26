@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
+import { getAppRole } from '../utils/student.js'
 
 const EMPTY_FORM = {
   firstName: '',
   lastName: '',
   email: '',
   age: 18,
-  role: 'user',
+  university: '',
+  appRole: 'Estudiante',
 }
 
 function StudentModal({ open, mode, student, busy, onClose, onSubmit }) {
@@ -22,7 +24,8 @@ function StudentModal({ open, mode, student, busy, onClose, onSubmit }) {
             lastName: student.lastName || '',
             email: student.email || '',
             age: student.age || 18,
-            role: student.role || 'user',
+            university: student.university || '',
+            appRole: student.appRole || getAppRole(student.role),
           }
         : EMPTY_FORM,
     )
@@ -68,13 +71,13 @@ function StudentModal({ open, mode, student, busy, onClose, onSubmit }) {
           <label>Apellido<input name="lastName" value={form.lastName} onChange={handleChange} /></label>
           <label className="form-wide">Correo<input name="email" type="email" value={form.email} onChange={handleChange} /></label>
           <label>Edad<input name="age" type="number" min="1" max="120" value={form.age} onChange={handleChange} /></label>
-          <label>Rol
-            <select name="role" value={form.role} onChange={handleChange}>
-              <option value="user">user</option>
-              <option value="moderator">moderator</option>
-              <option value="admin">admin</option>
+          <label>Tipo de usuario
+            <select name="appRole" value={form.appRole} onChange={handleChange}>
+              <option value="Estudiante">Estudiante</option>
+              <option value="Profesor">Profesor</option>
             </select>
           </label>
+          <label className="form-wide">Universidad<input name="university" value={form.university} onChange={handleChange} placeholder="Ej. Instituto Tecnológico de Oaxaca" /></label>
 
           {error && <p className="form-error form-wide">{error}</p>}
 

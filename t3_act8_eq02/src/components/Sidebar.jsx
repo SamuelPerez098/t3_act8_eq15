@@ -1,4 +1,4 @@
-function Sidebar({ open, currentView, onNavigate, onLogout }) {
+function Sidebar({ open, currentView, onNavigate }) {
   return (
     <aside className={`sidebar ${open ? '' : 'sidebar-hidden'}`}>
       <div>
@@ -31,9 +31,6 @@ function Sidebar({ open, currentView, onNavigate, onLogout }) {
       </div>
 
       <div className="sidebar-bottom">
-        <button className="menu-item" type="button" onClick={onLogout}>
-          <span>↪</span> Cerrar sesión
-        </button>
         <p>PLATAFORMA GRATUITA<br />INGLÉS · A1 — B2</p>
       </div>
     </aside>
