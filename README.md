@@ -109,6 +109,5 @@ Después se debe subir el contenido de `dist/` a la ruta correspondiente servida
 
 ## Enlace de despliegue
 
-`http://IP_DE_SU_VPS/t3_act8_eq02/`
+`http://3.148.185.31/t3_act8_eq15/`
 
-Reemplazar `IP_DE_SU_VPS` por la IP real al finalizar el despliegue.
