@@ -111,3 +111,11 @@ Después se debe subir el contenido de `dist/` a la ruta correspondiente servida
 
 `http://3.148.185.31/t3_act8_eq15/`
 
+## Capturas de Figma 
+
+#### Login 
+![alt text](image.png)
+#### menu
+![alt text](image-1.png)
+#### estudiantes
+![alt text](image-2.png)
